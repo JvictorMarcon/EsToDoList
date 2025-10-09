@@ -16,6 +16,9 @@
             <h1 class="text-red-600 text-3xl">EsToDoList</h1>
             <div class="w-9 h-9"></div>
         </div>
+
+
+        <!--Inicio da área de adicionar tarefas-->
         <div class=" gap-2 flex  justify-center">
             <input class="w-9/12 shadow 2xl h-10 text-left border rounded-md p-4 " type="text"
                 placeholder="Digite uma tarefa..." id="newTask">
@@ -23,11 +26,16 @@
                 class="bg-red-400 w-9 h-10 rounded-lg text-2xl shadow-4xl text-center hover:bg-red-600 hover:scale-110 transition duration-75 items-start"
                 type="submit" id="newTask-btn">+</button>
         </div>
+        <!--Onde termina a área de adicionar tarefas-->
+
+
+
+        <!--Área onde ficam as tarefas-->
         <h2 class=" text-2xl">
             Lista de tarefas</h2>
         <div class="flex flex-col">
             <ul class="flex  flex-col items-center gap-3  p-2 rounded-xl ">
-                <li class="flex w-9/12 justify-between items-center shadow 2xl h-10 text-left border rounded-md p-5 ">
+                <li class="flex w-9/12 justify-between items-center shadow 2xl h-10 text-left border rounded-md p-5 hover:bg-gray-300 hover:scale-105 transition duration-300">
                     <p>#Tarefa 1</p>
                     <div class="flex justify-center items-center gap-2 ">
                         <button
@@ -38,7 +46,7 @@
                             id="Edit-btn">📝</button>
                     </div>
                 </li>
-                <li class="flex w-9/12 justify-between items-center shadow 2xl h-10 text-left border rounded-md p-5 ">
+                <li class="flex w-9/12 justify-between items-center shadow 2xl h-10 text-left border rounded-md p-5 hover:bg-gray-300 hover:scale-105 transition duration-300 ">
                     <p>#Tarefa 2</p>
                     <div class="flex justify-center items-center gap-2 ">
                         <button
@@ -49,7 +57,7 @@
                             id="Edit-btn">📝</button>
                     </div>
                 </li>
-                <li class="flex w-9/12 justify-between items-center shadow 2xl h-10 text-left border rounded-md p-5 ">
+                <li class="flex w-9/12 justify-between items-center shadow 2xl h-10 text-left border rounded-md p-5 hover:bg-gray-300 hover:scale-105 transition duration-300">
                     <p class="line-through text-gray-400">#Tarefa 3</p>
                     <div class="flex justify-center items-center gap-2 ">
                         <button
@@ -57,14 +65,14 @@
                             id="Delete-btn">🗑</button>
                     </div>
                 </li>
+                
 
             </ul>
+            <hr class="my-6 border-zinc-700 ">
             <div class="mt-10 flex justify-center gap-3">
                 <input class="w-9/12 shadow 2xl h-10 text-left border rounded-md p-4" type="text"
                     placeholder="🔎Pesquise uma tarefa">
-                <button
-                    class="bg-red-400 w-9 h-10 rounded-lg text-2xl shadow-4xl text-center hover:bg-red-600 hover:scale-110"
-                    type="submit">⏩</button>
+                
             </div>
         </div>
     </main>
