@@ -83,10 +83,14 @@ function exibirTarefas(listaParaMostrar) {
     const item = document.createElement('li')
     item.className = 'flex w-9/12 justify-between items-center shadow 2xl h-10 text-left border rounded-md p-5 hover:bg-gray-300 hover:scale-105 transition duration-300'
     item.dataset.id = tarefa.id // armazenamos o id no dataset para referência
+    item.onclick = function (){
+        alternarConclusao(tarefa.id)
+    }
 
     // Criar um <p> para o texto da tarefa (mantendo estilo do HTML original)
-    const textoTarefa = document.createElement('p')
+    const textoTarefa = document.createElement('span')
     textoTarefa.textContent = tarefa.texto
+    
     // Aplicar estilo de concluída se necessário (linha riscada + cor acinzentada)
     if (tarefa.concluida) {
       textoTarefa.className = 'line-through text-gray-400 cursor-pointer'
@@ -101,10 +105,6 @@ function exibirTarefas(listaParaMostrar) {
     textoTarefa.setAttribute('role', 'button')
     textoTarefa.setAttribute('aria-pressed', String(tarefa.concluida))
 
-    // Clicar no texto alterna conclusão
-    textoTarefa.addEventListener('click', function () {
-      alternarConclusao(tarefa.id)
-    })
 
     // Permitir alternar também com Enter quando o <p> estiver focado
     textoTarefa.addEventListener('keydown', function (evento) {
@@ -228,7 +228,7 @@ function filtrarTarefas() {
 // -------------------------------
 botaoAdicionar.addEventListener('click', adicionarTarefa)
 campoPesquisa.addEventListener('input', pesquisarTarefas)
-seletorFiltro.addEventListener('change', filtrarTarefas)
+seletorFiltro.addEventListener('change', filtrarTarefas)          
 
 // Permitir adicionar tarefa ao pressionar Enter
 campoNovaTarefa.addEventListener('keydown', function (evento) {
