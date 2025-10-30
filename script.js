@@ -144,29 +144,14 @@ function exibirTarefas(listaParaMostrar) {
 // -------------------------------
 // 6. Função para alternar entre concluída e ativa
 // -------------------------------
-// -------------------------------
-// 6. Função para alternar entre concluída e ativa (corrigida / robusta)
-// -------------------------------
 function alternarConclusao(id) {
-  // garante que id seja número (pode vir como string em alguns contextos)
-  const numericId = typeof id === 'number' ? id : Number(id)
-
-  // encontra o índice da tarefa que corresponde ao id
-  const idx = tarefas.findIndex(function (t) {
-    // t.id foi guardado como number (Date.now), mas protegemos com Number
-    return Number(t.id) === numericId
-  })
-
-  if (idx === -1) {
-    // não encontrado — debug leve
-    console.warn('alternarConclusao: tarefa não encontrada para id =', id)
-    return
+  // percorre o array e inverte o boolean concluida para o id correspondente
+  for (let tarefa of tarefas) {
+    if (tarefa.id === id) {
+      tarefa.concluida = !tarefa.concluida
+      break // já encontramos, podemos sair do loop
+    }
   }
-
-  // inverte o boolean concluida
-  tarefas[idx].concluida = !tarefas[idx].concluida
-
-  // salva e re-renderiza
   salvarTarefas()
   exibirTarefas(tarefas)
 }
@@ -244,7 +229,6 @@ function filtrarTarefas() {
 botaoAdicionar.addEventListener('click', adicionarTarefa)
 campoPesquisa.addEventListener('input', pesquisarTarefas)
 seletorFiltro.addEventListener('change', filtrarTarefas)
-
 
 // Permitir adicionar tarefa ao pressionar Enter
 campoNovaTarefa.addEventListener('keydown', function (evento) {
